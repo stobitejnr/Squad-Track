@@ -1,0 +1,45 @@
+version: '3'
+services:
+  # MySQL Database
+  db:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Backend (e.g., Node.js, Python, etc.)
+  backend:
+    build: ./backend
+    container_name: backend-container
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: database
+    ports:
+      - "5001:5000" # Change the port depending on your backend app
+    volumes:
+      - ./backend:/app
+
+  # Frontend (e.g., React, Vue, Angular)
+  frontend:
+    build: ./frontend
+    container_name: frontend-container
+    ports:
+      - "3000:3000" # Change this depending on your frontend app's port
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
