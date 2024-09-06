@@ -925,7 +925,7 @@ database|schema||user||UPDATE|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="288" parent="1" name="database">
-      <LastIntrospectionLocalTimestamp>2024-09-06.04:36:04</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-09-06.05:28:10</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="information_schema">
