@@ -17,6 +17,7 @@ services:
       DB_USER: "user"
       DB_PASSWORD: "userpassword"
       DB_NAME: "simpledb"
+    restart: on-failure
 
   database:
     build: ./database
@@ -24,7 +25,7 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./my.cnf:/etc/mysql/my.cnf
+    restart: on-failure
 
 volumes:
   db_data:

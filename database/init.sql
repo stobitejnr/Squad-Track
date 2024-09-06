@@ -1,8 +1,6 @@
 CREATE DATABASE IF NOT EXISTS simpledb;
 USE simpledb;
 
-ALTER USER 'user'@'database' IDENTIFIED WITH mysql_native_password BY 'userpassword';
-
 drop table if exists players;
 
 CREATE TABLE players
