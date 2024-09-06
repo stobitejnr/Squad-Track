@@ -10,7 +10,7 @@ const db = require('./database');
 
 // Routes
 app.get('/api/data', (req, res) => {
-    db.query('SELECT * FROM my_table', (err, results) => {
+    db.query('SELECT * FROM players', (err, results) => {
         if (err) throw err;
         res.json(results);
     });

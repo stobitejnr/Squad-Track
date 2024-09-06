@@ -1,9 +1,27 @@
 table {
     border: solid 1px #000;
     padding: 10px;
+    border-radius: 10px;
 }
 
 td, th {
     text-align: left;
     padding-right: 40px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: deepskyblue;
+    color: white;
+    box-shadow: rgb(38, 194, 255, 0.5) 0px 0px 10px 0px;
+}
+
+button:hover {
+    background: rgb(38, 194, 255);
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
 }
