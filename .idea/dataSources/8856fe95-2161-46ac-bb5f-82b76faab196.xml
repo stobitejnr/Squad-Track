@@ -931,7 +931,7 @@ simpledb|schema||user||UPDATE|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="simpledb">
-      <LastIntrospectionLocalTimestamp>2024-09-07.02:51:12</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-09-07.08:26:02</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="291" parent="1" name="user"/>
@@ -940,7 +940,7 @@ simpledb|schema||user||UPDATE|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="293" parent="292" name="id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
@@ -953,29 +953,24 @@ simpledb|schema||user||UPDATE|G</Grants>
     <column id="295" parent="292" name="age">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>varchar(5)|0s</StoredType>
+      <StoredType>varchar(10)|0s</StoredType>
     </column>
     <column id="296" parent="292" name="salary">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>decimal(10,2 digit)|0s</StoredType>
+      <StoredType>decimal(10)|0s</StoredType>
     </column>
     <column id="297" parent="292" name="position">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="298" parent="292" name="created_at">
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <Position>6</Position>
-      <StoredType>timestamp|0s</StoredType>
-    </column>
-    <index id="299" parent="292" name="PRIMARY">
+    <index id="298" parent="292" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="300" parent="292" name="PRIMARY">
+    <key id="299" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

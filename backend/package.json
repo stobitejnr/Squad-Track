@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql2": "^3.11.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "@preline/overlay": "^1.0.0"
   }
 }

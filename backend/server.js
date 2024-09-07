@@ -34,6 +34,22 @@ app.get('/data', (req, res) => {
     });
 });
 
+// API endpoint to insert data into the database
+app.post('/', (req, res) => {
+    const {name, age, salary, position} = req.body; // Assuming you're sending name and attendance data in the request body
+
+    // Perform the database insertion logic
+    const sql = 'INSERT INTO simpledb.players (name, age, salary, position) VALUES (?, ?, ?, ?)';
+    connection.query(sql, [name, age, salary, position], (error, results, fields) => {
+        if (error) {
+            console.error('Error inserting into database: ' + error.stack);
+            res.status(500).json({error: 'Error inserting into database'});
+            return;
+        }
+        res.json({message: 'Data inserted successfully'});
+    });
+});
+
 app.listen(port, () => {
     // console.log(`Backend running on http://localhost:${port}`);
     console.log(`Frontend running on http://localhost:8080`);
