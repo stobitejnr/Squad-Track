@@ -1,4 +1,14 @@
+# Use the official Nginx image from the Docker Hub
 FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-COPY style.css /usr/share/nginx/html/style.css
-COPY script.js /usr/share/nginx/html/script.js
+
+# Set the working directory to the Nginx default HTML directory
+WORKDIR /usr/share/nginx/html
+
+# Copy all frontend files (HTML, CSS, JS) to the Nginx HTML directory
+COPY . .
+
+# Expose port 80 to the Docker host
+EXPOSE 80
+
+# Start Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]

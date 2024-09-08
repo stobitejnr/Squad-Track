@@ -1,6 +1,6 @@
 async function fetchData() {
     try {
-        const response = await fetch('http://localhost:3000/first'); // Fetch data from the server
+        const response = await fetch('http://localhost:3000/reserves'); // Fetch data from the server
         const data = await response.json(); // Parse the JSON data
         const tableBody = document.querySelector('#main-table'); // Get the table body element
         tableBody.innerHTML = ''; // Clear the table before populating it with new data
@@ -66,7 +66,7 @@ function saveData() {
     modalBG.style.display = 'none';
 
     // Send a POST request to the server to insert data
-    fetch('http://localhost:3000/first', {
+    fetch('http://localhost:3000/reserves', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;',

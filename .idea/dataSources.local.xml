@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="WS-242.21829.149">
-    <data-source name="simpledb@localhost" uuid="76bd5f11-5e9b-4453-838c-0d64b0758ba9">
+    <data-source name="simpledb@localhost" uuid="7a979329-9c52-44ca-9567-72f3fd88703d">
       <database-info product="MySQL" version="8.4.2" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.4.2" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
+        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>user</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema">
-            <name qname="simpledb" />
-            <name qname="@" />
-          </node>
+          <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

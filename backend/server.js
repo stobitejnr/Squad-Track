@@ -7,6 +7,9 @@ const bodyParser = require("body-parser");
 
 
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
+
 
 // Database connection
 const db = mysql.createConnection({
@@ -25,14 +28,9 @@ db.connect((err) => {
 });
 
 
-// Middleware to parse JSON data
-app.use(express.json());
-
-app.use(cors()); // To allow requests from frontend
-
 // Endpoint to get data
-app.get('/data', (req, res) => {
-    const sql = 'SELECT * FROM simpledb.players';
+app.get('/first', (req, res) => {
+    const sql = 'SELECT * FROM simpledb.first_players';
     db.query(sql, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
@@ -43,17 +41,44 @@ app.get('/data', (req, res) => {
     });
 });
 
+
+app.get('/second', (req, res) => {
+    const sql = 'SELECT * FROM simpledb.second_players';
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error retrieving data');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+
+app.get('/reserves', (req, res) => {
+    const sql = 'SELECT * FROM simpledb.reserves';
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error retrieving data');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+
 app.get('/', (req, res) => {
     res.send('Backend');
 });
 
 
 // API endpoint to insert data into the database
-app.post('/', (req, res) => {
+app.post('/first', (req, res) => {
     const {name, age, salary, position} = req.body;
 
     // Perform the database insertion logic
-    const sql = 'INSERT INTO players (name, age, salary, position) VALUES (?, ?, ?, ?)';
+    const sql = 'INSERT INTO first_players (name, age, salary, position) VALUES (?, ?, ?, ?)';
     db.query(sql, [name, age, salary, position], (error) => {
         if (error) {
             console.error('Error inserting into database: ' + error.stack);
@@ -64,6 +89,37 @@ app.post('/', (req, res) => {
     });
 });
 
+
+app.post('/second', (req, res) => {
+    const {name, age, salary, position} = req.body;
+
+    // Perform the database insertion logic
+    const sql = 'INSERT INTO second_players (name, age, salary, position) VALUES (?, ?, ?, ?)';
+    db.query(sql, [name, age, salary, position], (error) => {
+        if (error) {
+            console.error('Error inserting into database: ' + error.stack);
+            res.status(500).json({error: 'Error inserting into database'});
+            return;
+        }
+        res.json({message: 'Data inserted successfully'});
+    });
+});
+
+
+app.post('/reserves', (req, res) => {
+    const {name, age, salary, position} = req.body;
+
+    // Perform the database insertion logic
+    const sql = 'INSERT INTO reserves (name, age, salary, position) VALUES (?, ?, ?, ?)';
+    db.query(sql, [name, age, salary, position], (error) => {
+        if (error) {
+            console.error('Error inserting into database: ' + error.stack);
+            res.status(500).json({error: 'Error inserting into database'});
+            return;
+        }
+        res.json({message: 'Data inserted successfully'});
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
