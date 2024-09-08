@@ -1,27 +1,18 @@
 async function fetchData() {
     try {
-        const response = await fetch('http://localhost:3000/data');
-        const data = await response.json();
-        const tableBody = document.querySelector('#main-table');
+        const response = await fetch('http://localhost:3000/data'); // Fetch data from the server
+        const data = await response.json(); // Parse the JSON data
+        const tableBody = document.querySelector('#main-table'); // Get the table body element
+        tableBody.innerHTML = ''; // Clear the table before populating it with new data
 
+        // Loop through the data and add it to the table
         data.forEach(row => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td class="py-3 ps-4">
-                    <div class="flex items-center h-5">
-                        <input class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" type="checkbox">
-                    </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">${row.name}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">${row.name}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">${row.age} years</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">$${(row.salary)}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">${row.position}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                    <button class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400" type="button">
-                        Delete
-                    </button>
-                </td>
-            `;
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">${row.position}</td>`;
             tableBody.appendChild(tr);
         });
     } catch (error) {
@@ -29,22 +20,18 @@ async function fetchData() {
     }
 }
 
-fetchData();
-
+fetchData(); // Fetch data when the page loads
 
 let modalBG = document.getElementById('modal-bg');
 
 // Get the modal
 let modal = document.getElementById('myModal');
 
-
 // Get the <span> element that closes the modal
 let close = document.getElementsByClassName('close')[0];
 
-
 // Get the add new data button
 let newData = document.getElementById('nav-6');
-
 
 // When the user clicks on the button, open the modal
 newData.onclick = function () {
@@ -58,6 +45,7 @@ close.onclick = function () {
     modal.style.display = 'none';
     modalBG.style.display = 'none';
 }
+
 
 function saveData() {
     // Get input values from the modal
@@ -78,10 +66,10 @@ function saveData() {
     modalBG.style.display = 'none';
 
     // Send a POST request to the server to insert data
-    fetch('/', {
+    fetch('http://localhost:3000/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json;',
         },
         body: JSON.stringify({
             name: name,
@@ -90,12 +78,18 @@ function saveData() {
             position: position
         })
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response:', response);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
-            console.log(data);
+            console.log('Data received:', data);
+            fetchData();
         })
         .catch(error => {
             console.error('Error:', error);
         });
-    // location.reload();
 }
