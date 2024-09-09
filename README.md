@@ -45,6 +45,14 @@ relevant player information is systematically recorded and readily available.
     docker compose down
 ```
 
+## Project Demo (Click Image to Watch)
+
+<div>
+    <a href="https://youtu.be/4y8kjg0sslc" target="_blank">
+        <img src="./frontend/Squad.jpg" alt="Project Demo Video" />
+    </a>
+</div>
+
 ---
 
 ## Useful Docker Commands
