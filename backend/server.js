@@ -78,17 +78,8 @@ app.get('/reserves', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Backend');
 });
-/*
-const corsOptions = {
-    origin: '*', // Allows all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization', 'Authenticate_token'], // Allowed headers
-    exposedHeaders: ['Content-Type', 'Authorization', 'Authenticate_token'] // Exposed headers
-};
 
-// Use CORS middleware
-app.use(cors(corsOptions));
-*/
+
 // API endpoint to insert data into the database
 app.post('/first', (req, res) => {
     const {name, age, salary, position} = req.body;
@@ -137,6 +128,91 @@ app.post('/reserves', (req, res) => {
             return;
         }
         res.json({message: 'Data inserted successfully'});
+    });
+});
+
+
+// Handle DELETE request
+app.delete('/firster', (req, res) => {
+    const {name, position} = req.body;
+
+    console.log(req.body);
+
+    // SQL query to delete the record matching the exact details
+    const query = `
+        DELETE
+        FROM first_players
+        WHERE name = ?
+          AND position = ?;
+    `;
+
+    // Execute the query
+    db.query(query, [name, position], (err, result) => {
+        if (err) {
+            return res.status(500).send('Error deleting the record');
+        }
+
+        if (result.affectedRows > 0) {
+            res.send('Record deleted successfully');
+        } else {
+            res.status(404).send('No matching record found');
+        }
+    });
+});
+
+// Handle DELETE request
+app.delete('/seconder', (req, res) => {
+    const {name, position} = req.body;
+
+    console.log(req.body);
+
+    // SQL query to delete the record matching the exact details
+    const query = `
+        DELETE
+        FROM second_players
+        WHERE name = ?
+          AND position = ?;
+    `;
+
+    // Execute the query
+    db.query(query, [name, position], (err, result) => {
+        if (err) {
+            return res.status(500).send('Error deleting the record');
+        }
+
+        if (result.affectedRows > 0) {
+            res.send('Record deleted successfully');
+        } else {
+            res.status(404).send('No matching record found');
+        }
+    });
+});
+
+// Handle DELETE request
+app.delete('/reserver', (req, res) => {
+    const {name, position} = req.body;
+
+    console.log(req.body);
+
+    // SQL query to delete the record matching the exact details
+    const query = `
+        DELETE
+        FROM reserves
+        WHERE name = ?
+          AND position = ?;
+    `;
+
+    // Execute the query
+    db.query(query, [name, position], (err, result) => {
+        if (err) {
+            return res.status(500).send('Error deleting the record');
+        }
+
+        if (result.affectedRows > 0) {
+            res.send('Record deleted successfully');
+        } else {
+            res.status(404).send('No matching record found');
+        }
     });
 });
 
