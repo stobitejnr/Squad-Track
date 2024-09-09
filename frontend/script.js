@@ -65,31 +65,33 @@ function saveData() {
     modal.style.display = 'none';
     modalBG.style.display = 'none';
 
-    // Send a POST request to the server to insert data
-    fetch('http://localhost:3000/first', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;',
-        },
-        body: JSON.stringify({
-            name: name,
-            age: age,
-            salary: salary,
-            position: position
-        })
-    })
-        .then(response => {
-            console.log('Response:', response);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data received:', data);
-            fetchData();
-        })
-        .catch(error => {
-            console.error('Error:', error);
+
+    async function postData() {
+
+
+        let headersList = {
+            "Accept": "*/*",
+            "Content-Type": "application/json"
+        }
+
+        let bodyContent = JSON.stringify({
+            "name": name,
+            "age": age,
+            "salary": salary,
+            "position": position
         });
+
+        let response = await fetch("http://localhost:3000/first", {
+            method: "POST",
+            body: bodyContent,
+            headers: headersList
+        });
+
+        let data = await response.text();
+        console.log(data);
+    }
+
+    postData();
+    location.reload();
+
 }
