@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/simpledb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="@squad-track-database.cmwrzzcezjll.us-east-1.rds.amazonaws.com" uuid="748a185e-0d43-4fdc-b902-ea2b5d27bd45">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://squad-track-database.cmwrzzcezjll.us-east-1.rds.amazonaws.com:3306/</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

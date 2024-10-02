@@ -15,9 +15,9 @@ services:
     depends_on:
       - database
     environment:
-      DB_HOST: "database"
-      DB_USER: "user"
-      DB_PASSWORD: "userpassword"
+      DB_HOST: "squad-track-database.cmwrzzcezjll.us-east-1.rds.amazonaws.com"
+      DB_USER: "admin"
+      DB_PASSWORD: "adminadmin"
       DB_NAME: "simpledb"
     restart: on-failure
     networks:
