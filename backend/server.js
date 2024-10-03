@@ -61,7 +61,6 @@ app.get('/second', (req, res) => {
     });
 });
 
-
 app.get('/reserves', (req, res) => {
     const sql = 'SELECT * FROM simpledb.reserves';
     db.query(sql, (err, results) => {
@@ -217,6 +216,6 @@ app.delete('/reserver', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-    console.log(`Frontend running on http://localhost:8080`);
+    console.log(`Backend running on http://54.145.179.13:${port}`);
+    console.log(`Frontend running on http://54.81.75.107:80`);
 });
