@@ -1,6 +1,6 @@
 async function fetchData() {
     try {
-        const response = await fetch('http://54.145.179.13:3000/second'); // Fetch data from the server
+        const response = await fetch('http://98.83.29.224:3000/second'); // Fetch data from the server
         const data = await response.json(); // Parse the JSON data
         const tableBody = document.querySelector('#main-table'); // Get the table body element
         tableBody.innerHTML = ''; // Clear the table before populating it with new data
@@ -55,7 +55,7 @@ async function deleteRow(rowId) {
     });
 
     // Send DELETE request
-    let response = await fetch("http://54.145.179.13:3000/seconder", {
+    let response = await fetch("http://98.83.29.224:3000/seconder", {
         method: "DELETE",
         body: bodyContent,
         headers: headersList
@@ -125,7 +125,7 @@ function saveData() {
             "position": position
         });
 
-        let response = await fetch("http://54.145.179.13:3000/second", {
+        let response = await fetch("http://98.83.29.224:3000/second", {
             method: "POST",
             body: bodyContent,
             headers: headersList

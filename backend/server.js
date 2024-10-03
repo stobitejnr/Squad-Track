@@ -216,6 +216,6 @@ app.delete('/reserver', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Backend running on http://54.145.179.13:${port}`);
+    console.log(`Backend running on http://98.83.29.224:${port}`);
     console.log(`Frontend running on http://54.81.75.107:80`);
 });
