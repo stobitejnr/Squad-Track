@@ -1,8 +1,6 @@
-const back = 'http://18.207.232.234:3000/';
-
 async function fetchData() {
     try {
-        const response = await fetch(`${back}reserves`); // Fetch data from the server
+        const response = await fetch(`http://18.207.232.234/reserves`); // Fetch data from the server
         const data = await response.json(); // Parse the JSON data
         const tableBody = document.querySelector('#main-table'); // Get the table body element
         tableBody.innerHTML = ''; // Clear the table before populating it with new data
@@ -57,7 +55,7 @@ async function deleteRow(rowId) {
     });
 
     // Send DELETE request
-    let response = await fetch(`${back}reserver`, {
+    let response = await fetch(`http://18.207.232.234/reserver`, {
         method: "DELETE",
         body: bodyContent,
         headers: headersList
@@ -128,7 +126,7 @@ function saveData() {
             "position": position
         });
 
-        let response = await fetch(`${back}reserves`, {
+        let response = await fetch(`http://18.207.232.234/reserves`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
