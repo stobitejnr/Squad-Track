@@ -1,4 +1,4 @@
-const back = 'http://98.83.29.224:3000/';
+const back = 'http://18.207.232.234:3000/';
 
 async function fetchData() {
     try {
