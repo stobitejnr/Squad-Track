@@ -95,6 +95,19 @@ modal.active {
     font-size: medium;
 }
 
+.player-imgs {
+    border-radius: 20px;
+    margin: 0 0 20px 0;
+    border: 5px solid white;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
+    transition: scale .2s;
+}
+
+.player-imgs:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
 /* when the input is selected and user is typing in it*/
 .data-inputs:focus {
     border: 1px solid #222222;
