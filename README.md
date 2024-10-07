@@ -37,7 +37,7 @@ relevant player information is systematically recorded and readily available.
 ## Project Demo (Click Image to Watch)
 
 <div>
-    <a href="https://youtu.be/4y8kjg0sslc" target="_blank">
+    <a href="https://youtu.be/5On1IxACKUw" target="_blank">
         <img src="./frontend/Squad.jpg" alt="Project Demo Video" />
     </a>
 </div>
