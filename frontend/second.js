@@ -125,7 +125,7 @@ function saveData() {
             "position": position
         });
 
-        let response = await fetch(`http://18.207.232.234:3000/second`, {
+        let response = await fetch(`http://18.207.232.234:3000/seconds`, {
             method: "POST",
             body: bodyContent,
             headers: headersList

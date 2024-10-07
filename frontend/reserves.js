@@ -126,7 +126,7 @@ function saveData() {
             "position": position
         });
 
-        let response = await fetch('http://18.207.232.234:3000/reserves', {
+        let response = await fetch('http://18.207.232.234:3000/reservess', {
             method: "POST",
             body: bodyContent,
             headers: headersList

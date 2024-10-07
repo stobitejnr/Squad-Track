@@ -80,7 +80,7 @@ app.get('/', (req, res) => {
 
 
 // API endpoint to insert data into the database
-app.post('/first', (req, res) => {
+app.post('/firsts', (req, res) => {
     const {name, age, salary, position} = req.body;
     console.log(req.body);
     console.log(name);
@@ -99,7 +99,7 @@ app.post('/first', (req, res) => {
 });
 
 
-app.post('/second', (req, res) => {
+app.post('/seconds', (req, res) => {
     const {name, age, salary, position} = req.body;
 
     // Perform the database insertion logic
@@ -115,7 +115,7 @@ app.post('/second', (req, res) => {
 });
 
 
-app.post('/reserves', (req, res) => {
+app.post('/reservess', (req, res) => {
     const {name, age, salary, position} = req.body;
 
     // Perform the database insertion logic
