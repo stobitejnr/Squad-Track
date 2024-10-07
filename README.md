@@ -14,7 +14,9 @@ relevant player information is systematically recorded and readily available.
 
 * **Frontend:** HTML, CSS **&** JavaScript
 * **Backend:** JavaScript
-* **Database:** MySQL2
+* **Database:** MySQL2 (Amazon RDS)
+* **Storage:** Amazon S3
+* **Testing:** AWS Lambda
 
 ## File Tree
 
@@ -22,28 +24,15 @@ relevant player information is systematically recorded and readily available.
 - `backend` - Contains the JavaScript backend project
 - `database` - Contains the MySQL database configuration
 
-## Running Locally
+## Accessing the Application
 
-1. Clone the repository
-    ```bash
-    git clone https://github.com/stobitejnr/Squad-Track.git
-    ```
-2. Change into the project directory
-    ```bash
-    cd Squad-Track
-    ```
-3. Open [Docker Desktop](https://www.docker.com/products/docker-desktop/) and ensure it is running.
-4. Build and run the project
-    ```bash
-    docker compose up --build
-    ```
-5. Open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the frontend application.
+1.	Open your browser and navigate to the provided frontend URL to access the application.
 
-### Shutting Down the Project
 
-```bash
-    docker compose down
-```
+## Viewing Images
+
+	•	Users can browse through the images that have been uploaded to the application. The application displays thumbnails of the images stored in the S3 bucket, providing a visual representation of the items available.
+	•	An AWS Lambda function automatically triggers when users upload images, testing the files for correctness and ensuring they meet specified criteria.
 
 ## Project Demo (Click Image to Watch)
 
@@ -52,22 +41,3 @@ relevant player information is systematically recorded and readily available.
         <img src="./frontend/Squad.jpg" alt="Project Demo Video" />
     </a>
 </div>
-
----
-
-## Useful Docker Commands
-
-- **Building and running multiple Docker containers from a `docker-compose` file**
-    ```bash
-    docker compose up -d
-    ```
-
-- **Stopping multiple Docker containers from a `docker-compose` file**
-    ```bash
-    docker compose down
-    ```
-
-- **Viewing all running Docker containers**
-    ```bash
-    docker ps
-    ```
